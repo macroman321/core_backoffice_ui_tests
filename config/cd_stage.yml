@@ -1,0 +1,10 @@
+###
+#
+# cd_stage.yml
+#
+# Config data for the Staging environment
+#
+###
+
+url:
+  backoffice: 'https://core-backoffice-stage.gamecredits2.org/backoffice'

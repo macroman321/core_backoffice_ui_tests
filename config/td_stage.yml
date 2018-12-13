@@ -1,0 +1,18 @@
+###
+#
+# td_stage.yml
+#
+# Test data for the Staging environment
+#
+###
+
+users:
+  qa_admin_1:
+    email: gn.qa.admir@gamecredits.com
+    username: gnqaadmir
+    password: QAuser2017&&&
+
+  qa_regular_1:
+    email: qa.at_user_200@gamecredits.com
+    username: qa_user_200
+    password: QAuser2017&&&
