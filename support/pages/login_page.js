@@ -37,6 +37,12 @@ class LoginPage extends Page {
   async accesDeniedRegularUserNotification () {
     await this.webdriver.waitForVisible(this.accessDeniedForRegularUser, WAIT_TIME_MEDIUM)
   }
+
+  async loginPageElements () {
+    await this.webdriver.waitForVisible(this.emailTextFieldName, WAIT_TIME_MEDIUM)
+    await this.webdriver.waitForVisible(this.passwordTextFieldName, WAIT_TIME_MEDIUM)
+    await this.webdriver.waitForVisible(this.loginButtonClass, WAIT_TIME_MEDIUM)
+  }
 }
 
 module.exports = LoginPage

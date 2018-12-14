@@ -14,6 +14,7 @@ class MainPage extends Page {
 
   // Page elements locators
   get userDropDownMenu () {return '[class="dropdown-toggle"]'}
+  get signOutButton () {return '=Sign Out'}
 
 
   // Page methods
@@ -23,6 +24,11 @@ class MainPage extends Page {
 
   async verifyMainPage () {
     await this.webdriver.waitForVisible(this.userDropDownMenu, WAIT_TIME_MEDIUM)
+  }
+
+  async clickSignOutButton () {
+    await this.webdriver.waitForVisible(this.signOutButton, WAIT_TIME_MEDIUM)
+    await this.webdriver.click(this.signOutButton, WAIT_TIME_MEDIUM)
   }
 }
 
