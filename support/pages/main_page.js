@@ -14,6 +14,8 @@ class MainPage extends Page {
 
   // Page elements locators
   get userDropDownMenu () {return '[class="dropdown-toggle"]'}
+  get clickAboutPanel () {return '=About panel'}
+  get headerAboutPanel () {return '[class="starter-template"]'}
 
 
   // Page methods
@@ -23,6 +25,24 @@ class MainPage extends Page {
 
   async verifyMainPage () {
     await this.webdriver.waitForVisible(this.userDropDownMenu, WAIT_TIME_MEDIUM)
+  }
+
+  async clickAboutPanelLink () {
+    await this.webdriver.waitForVisible(this.clickAboutPanel, WAIT_TIME_MEDIUM)
+    await this.webdriver.click(this.clickAboutPanel, WAIT_TIME_MEDIUM)
+  }
+
+  async aboutPanelInformations() {
+    await this.webdriver.waitForVisible(this.headerAboutPanel, WAIT_TIME_MEDIUM)
+    
+    const textToCompare = "Admin panel is used for manage and list info related to users, transactions and games and bank itself."
+    const aboutPanel = await this.webdriver.getText(this.headerAboutPanel, WAIT_TIME_MEDIUM)
+    const aboutPanelLength = aboutPanel.length
+    const aboutPanelText = aboutPanel.slice(6, aboutPanelLength)
+    
+    if (aboutPanelText !== textToCompare){
+      throw new Error("Element strings don't match!") 
+    }
   }
 }
 
