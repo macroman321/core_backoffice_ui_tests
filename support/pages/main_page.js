@@ -14,6 +14,9 @@ class MainPage extends Page {
 
   // Page elements locators
   get userDropDownMenu () {return '[class="dropdown-toggle"]'}
+  get merchantsLink () {return '=Merchants'}
+  get clickAllMerchants () {return "=All merchants"}
+  get getTableRow () {return '[class="table table-striped"]'}
 
 
   // Page methods
@@ -23,6 +26,16 @@ class MainPage extends Page {
 
   async verifyMainPage () {
     await this.webdriver.waitForVisible(this.userDropDownMenu, WAIT_TIME_MEDIUM)
+  }
+
+  async selectAllMerchants () {
+    await this.webdriver.waitForVisible(this.merchantsLink, WAIT_TIME_MEDIUM)
+    await this.webdriver.click(this.merchantsLink)
+    await this.webdriver.click(this.clickAllMerchants)
+  }
+
+  async listOfMerchants () {
+    await this.webdriver.element(this.getTableRow).elements('tr')
   }
 }
 
