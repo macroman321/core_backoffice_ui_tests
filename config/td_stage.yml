@@ -9,7 +9,8 @@
 users:
   qa_admin_1:
     email: gn.qa.admir@gamecredits.com
-    username: gnqaadmir
+    username: strict_admin
+    # username: gnqaadmir
     password: QAuser2017&&&
 
   qa_regular_1:
