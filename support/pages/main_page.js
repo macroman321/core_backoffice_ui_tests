@@ -35,31 +35,24 @@ class MainPage extends Page {
     await this.webdriver.click(this.clickAllMerchants)
   }
 
-  // async clickOnMerchantFromList () {
-  //   const merchants = await this.webdriver.elements('table tr td')
-  //   const test = await this.webdriver.elementIdClick(merchants[0].ELEMENT)
-  //   console.log('*********', merchants)
-  //   console.log('*********', test)
-  //   // const elements = await this.webdriver.elementIdText(y)
-  //   // const dax = elements.value
-  //   // console.log('***********', dax)
-  //   // await this.webdriver.click(dax)
-  // }
-
   async clickOnMerchantFromList () {
     const merchant = await this.webdriver.element(this.getMerchantsTable).elements('tr').elements('td')
-    const x = merchant.value[0]
-    console.log('*********X********', x)
-    // const y = x.ELEMENT
-    const y = Object.values(x)[0]
-    console.log('*********Y********', y)
-    // await this.webdriver.elementClick(y)
-    const elements = await this.webdriver.elementIdText(y)
-    const dax = elements.value
+    const dax = merchant.value[0]
+    const max = Object.values(dax)[0]
+    // const nix = await this.webdriver.elementIdText(max)
+    // const bax = max.value
+    console.log('************', max)
+    // await this.webdriver.click(bax)
 
+    await this.webdriver.elementIdClick(bax)
+    await util.sleep(2000)
+    
     
 
+
   }
+
+  
 
   async depositOnMerchantAccount () {
     await this.webdriver.waitForVisible(this.buttonDepositWithdraw)
